@@ -23,6 +23,5 @@
 <input type = "submit" value = "delete" name="doThisToItem">
 <input type = "submit" value = "add" name="doThisToItem">
 </form>
-
 </body>
 </html>

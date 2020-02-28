@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ViewAllPolishServlet
+ * Servlet implementation class addPolishForListServlet
  */
-@WebServlet("/viewAllPolishServlet")
-public class ViewAllPolishServlet extends HttpServlet {
+@WebServlet("/addPolishForListServlet")
+public class addPolishForListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ViewAllPolishServlet() {
+    public addPolishForListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,14 +28,11 @@ public class ViewAllPolishServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ListItemsHelper dao = new ListItemsHelper();
 		request.setAttribute("allItems", dao.showAllItems());
-		String path = "/Polish-list.jsp";
-		if (dao.showAllItems().isEmpty()){
-			path = "/index.html";
+		if (dao.showAllItems().isEmpty()) {
+			request.setAttribute("allItems",  " ");
 		}
-		
-		getServletContext().getRequestDispatcher(path).forward(request,response);
+		getServletContext().getRequestDispatcher("/new-list.jsp").forward(request, response);
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

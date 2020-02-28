@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="items")
 public class ListItems {
+
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="ID")
@@ -64,11 +65,16 @@ public class ListItems {
 		this.color = color;
 	}
 	
+	
 	public String returnItemDetails() {
-		return brand + " : " + color;
+		return brand + ":" + color;
 	}
-	
-	
+
+
+	@Override
+	public String toString() {
+		return "ListItems [brand=" + brand + ", color=" + color + "]";
+	}
 	
 }
 	
