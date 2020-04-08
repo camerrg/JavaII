@@ -5,11 +5,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/JavaScript">
+
+
+function checkRadio(event)
+	{
+		var str= document.finalform.doThisToItem.value;
+			if((str==null) || (str==""))
+				{
+				alert('Please enter a selection');
+				return false;
+				}
+	}
+</script>
+
 <meta charset="ISO-8859-1">
 <title>polish list</title>
 </head>
 <body>
-<form method ="post" action = "navigationServlet">
+<form name="finalform" method ="post" action = "navigationServlet" onSubmit= "return checkRadio(event);">
 <table>
 <c:forEach items="${requestScope.allItems}" var="currentitem">
 <tr>

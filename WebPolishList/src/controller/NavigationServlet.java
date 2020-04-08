@@ -33,6 +33,8 @@ public class NavigationServlet extends HttpServlet {
 		ListItemsHelper dao = new ListItemsHelper();
 		String act = request.getParameter("doThisToItem");
 		String path = "/viewAllPolishServlet";
+		
+
 	
 		if (act.equals("delete")) {
 			try {

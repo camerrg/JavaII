@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/JavaScript">
+
+function validateInput(event)
+	{
+		event.preventDefault();
+		if (document.homeform.brand.value=="" || document.homeform.brand.value==" " )
+			{
+				alert('Please enter a valid brand');
+				document.homeform.brand.focus();
+				return false;
+			}
+		
+		else if (document.homeform.color.value=="")
+			{
+				alert('Color can not be  blank');
+				document.homeform.color.focus();
+				return false;
+			}
+		else 
+			{
+				document.homeform.submit();
+			}
+		}
+</script>
 <meta charset="ISO-8859-1">
 <title>Home Page</title>
 </head>
 <body>
-<form action = "addPolishServlet" method="post">
+<form name="homeform" action = "addPolishServlet" method="post" onSubmit= "return validateInput(event);">
 Brand: <input type ="text" name = "brand">
 Color: <input type = "text" name = "color">
 <input type = "submit" value ="Add Polish">
